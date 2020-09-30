@@ -105,49 +105,64 @@ const data = [
 
 */
 
-function articleMaker(title, content, expand) {
+function articleMaker(title, date, para1, para2, para3) {
 
-  const accordian = document.querySelector('.articles')
+  const divArticle = document.createElement('div');
+  const titleHeader = document.createElement('h2');
+  const datePara = document.createElement('p');
+  const firstPara = document.createElement('p');
+  const secPara = document.createElement('p');
+  const thirdPara = document.createElement('p');
+  const newSpanButton = document.createElement('span');
 
-  const divArticle = document.createElement('div')
-  const titleHeader = document.createElement('h2')
-  const datePara = document.createElement('p')
-  const firstPara = document.createElement('p')
-  const secPara = document.createElement('p')
-  const thirdPara = document.createElement('p')
-  const newSpanButton = document.createElement('span')
+  divArticle.classList.add('article');
+  datePara.classList.add('date');
+  newSpanButton.classList.add('expandButton');
 
-  accordian.appendChild(divArticle)
-  divArticle.appendChild(titleHeader)
-  divArticle.appendChild(datePara)
-  divArticle.appendChild(firstPara)
-  divArticle.appendChild(secPara)
-  divArticle.appendChild(thirdPara)
-  divArticle.appendChild(newSpanButton)
+  divArticle.appendChild(titleHeader);
+  divArticle.appendChild(datePara);
+  divArticle.appendChild(firstPara);
+  divArticle.appendChild(secPara);
+  divArticle.appendChild(thirdPara);
+  divArticle.appendChild(newSpanButton);
 
-  divArticle.classList.add('article')
-  datePara.classList.add('date')
-  newSpanButton.classList.add('expandButton')
-
-  titleHeader.textContent = title
-  firstPara.textContent = content
-  secPara.textContent = content
-  thirdPara.textContent = content
-  newSpanButton.textContent = expand
+  titleHeader.textContent = title;
+  datePara.textContent = date;
+  firstPara.textContent = para1;
+  secPara.textContent = para2;
+  thirdPara.textContent = para3;
+  newSpanButton.textContent = "+";
 
   newSpanButton.addEventListener('click', () => { // created eventListener on element we want to 'click'
-    newSpanButton.classList.toggle('article-open')
-    newSpanButton.classList.toggle('article-close')
+    divArticle.classList.toggle('article-open');
   })
 
-  return accordian
+  return divArticle;
 }
 
-const banana = articleMaker.array.forEach(element => {
-  return 
+const accordian = document.querySelector('.articles');
+
+data.push( 
+  {title: "I made this?",
+  date: "Sept. 30th, 2020",
+  firstParagraph: "Whatever",
+  secondParagraph: "Whatever2",
+  thirdParagraph: "Whatever3"
 })
 
-articleMaker(data)
+data.map(item => {
+
+  const connector = articleMaker(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph)
+
+  accordian.appendChild(connector)
+  console.log(connector)
+  
+});
+
+
+
+
+
 /*
 
   Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
