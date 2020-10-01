@@ -14,7 +14,7 @@ In this project we are going to be building a news feed reader. The goal is to h
 **Follow these steps to set up and work on your project:**
 
 * [x] Create a forked copy of this project.
-* [ ] Add your team lead as collaborator on Github.
+* [x] Add your team lead as collaborator on Github.
 * [x] Clone your OWN version of the repository (Not Lambda's by mistake!).
 * [x] Create a new branch: git checkout -b `<firstName-lastName>`.
 * [x] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
@@ -22,7 +22,7 @@ In this project we are going to be building a news feed reader. The goal is to h
 
 **Follow these steps for completing your project.**
 
-* [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's Repo). **Please don't merge your own pull request**
+* [x] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's Repo). **Please don't merge your own pull request**
 
 ### Launching the project
 
