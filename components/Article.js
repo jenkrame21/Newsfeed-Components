@@ -155,13 +155,8 @@ data.map(item => {
   const connector = articleMaker(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph)
 
   accordian.appendChild(connector)
-  console.log(connector)
   
 });
-
-
-
-
 
 /*
 

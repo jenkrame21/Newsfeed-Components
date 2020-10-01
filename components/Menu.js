@@ -20,55 +20,43 @@ let menuItems = [
 
   */
 
-  // const 
 
+
+  // Step 1
   function menuMaker(array){
 
     const menuDiv = document.createElement('div');
-    const menuUL = document.createElement('ul');
-    const studentsUL = document.createElement('li');
-    const facultyUL = document.createElement('li');
-    const whatsNewUL = document.createElement('li');
-    const techTrendsUL = document.createElement('li');
-    const musicUL = document.createElement('li');
-    const logOutUL = document.createElement('li');
+    const menuList = document.createElement('ul');
 
     menuDiv.classList.add('menu');
 
-    menuDiv.appendChild(menuUL);
-    menuUL.appendChild(studentsUL);
-    menuUL.appendChild(facultyUL);
-    menuUL.appendChild(whatsNewUL);
-    menuUL.appendChild(techTrendsUL);
-    menuUL.appendChild(musicUL);
-    menuUL.appendChild(logOutUL);
+    menuDiv.appendChild(menuList);
 
-    studentsUL.textContent = array.students
-    facultyUL.textContent = array.faculty
-    whatsNewUL.textContent = array.whatsNew
-    techTrendsUL.textContent = array.techTrends
-    musicUL.textContent = array.music
-    logOutUL.textContent = array.logOut
+    // Step 2
+    menuItems.forEach(items => {
+      const listItem = document.createElement('li');
+      listItem.textContent = items;
+      menuList.appendChild(listItem);
+    });
 
+    // Step 3
+    const menuButton = document.querySelector('.menu-button')
 
-    menuDiv.addEventListener('click', () => { // created eventListener on element we want to 'click'
+    // Step 4
+    menuButton.addEventListener('click', () => {
     menuDiv.classList.toggle('menu--open');
     })
 
+    // Step 5
     return menuDiv;
 
   }
 
-  const menuButton = document.querySelector('.menu-button')
+  const header = document.querySelector('.header')
 
-  menuItems.map(item => {
+  // Step 6
 
-    const connector = menuMaker(item)
-  
-    menuButton.appendChild(connector)
-    console.log(connector)
-    
-  });
+  header.append(menuMaker(menuItems))
 
   /*
 
