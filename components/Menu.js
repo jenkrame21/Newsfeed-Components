@@ -18,6 +18,60 @@ let menuItems = [
     </ul>
   </div>
 
+  */
+
+  // const 
+
+  function menuMaker(array){
+
+    const menuDiv = document.createElement('div');
+    const menuUL = document.createElement('ul');
+    const studentsUL = document.createElement('li');
+    const facultyUL = document.createElement('li');
+    const whatsNewUL = document.createElement('li');
+    const techTrendsUL = document.createElement('li');
+    const musicUL = document.createElement('li');
+    const logOutUL = document.createElement('li');
+
+    menuDiv.classList.add('menu');
+
+    menuDiv.appendChild(menuUL);
+    menuUL.appendChild(studentsUL);
+    menuUL.appendChild(facultyUL);
+    menuUL.appendChild(whatsNewUL);
+    menuUL.appendChild(techTrendsUL);
+    menuUL.appendChild(musicUL);
+    menuUL.appendChild(logOutUL);
+
+    studentsUL.textContent = array.students
+    facultyUL.textContent = array.faculty
+    whatsNewUL.textContent = array.whatsNew
+    techTrendsUL.textContent = array.techTrends
+    musicUL.textContent = array.music
+    logOutUL.textContent = array.logOut
+
+
+    menuDiv.addEventListener('click', () => { // created eventListener on element we want to 'click'
+    menuDiv.classList.toggle('menu--open');
+    })
+
+    return menuDiv;
+
+  }
+
+  const menuButton = document.querySelector('.menu-button')
+
+  menuItems.map(item => {
+
+    const connector = menuMaker(item)
+  
+    menuButton.appendChild(connector)
+    console.log(connector)
+    
+  });
+
+  /*
+
   The 'menuMaker' takes an array of menu items as its only argument.
 
   Step 2: Inside the function, iterate over the array creating a list item <li> element for each item in the array.
