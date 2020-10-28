@@ -23,39 +23,48 @@ let menuItems = [
 
 
   // Step 1
-  function menuMaker(array){
+  // Created a component
+  function menuMaker(){
 
+    // Created elements needed, in this case a div and an unordered list
     const menuDiv = document.createElement('div');
     const menuList = document.createElement('ul');
 
+    // Added a class to the div called 'menu'
     menuDiv.classList.add('menu');
 
+    // Made the div menuDiv wrap around the ul menuList 
     menuDiv.appendChild(menuList);
 
     // Step 2
+    // menuItems loops through 
     menuItems.forEach(items => {
-      const listItem = document.createElement('li');
-      listItem.textContent = items;
-      menuList.appendChild(listItem);
+      const listItem = document.createElement('li'); // Created variable listItem that's assigned to newly created element li
+      listItem.textContent = items; // Added text to listItem
+      menuList.appendChild(listItem); // Made the div menuList wrap around the li listItem
     });
 
     // Step 3
+    // Created variable menuButton that's assigned to selected class 'menu-button'
     const menuButton = document.querySelector('.menu-button')
 
     // Step 4
-    menuButton.addEventListener('click', () => {
-    menuDiv.classList.toggle('menu--open');
+    menuButton.addEventListener('click', () => { // Added event listener to menuButton using 'click'
+    menuDiv.classList.toggle('menu-open'); // Give menuDiv the ability to toggle 'menu-open'
     })
 
     // Step 5
+    // return the main newly created parent
     return menuDiv;
 
   }
 
+  // Declared variable of header that selects the class 'header'
   const header = document.querySelector('.header')
 
   // Step 6
 
+  // header wraps menuMaker function that's invoking menuItems
   header.append(menuMaker(menuItems))
 
   /*
