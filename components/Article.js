@@ -103,6 +103,84 @@ const data = [
     <span class="expandButton">+</span>
   </div>
 
+*/
+
+function articleMaker(title, date, para1, para2, para3) {
+
+  const divArticle = document.createElement('div');
+  const titleHeader = document.createElement('h2');
+  const datePara = document.createElement('p');
+  const firstPara = document.createElement('p');
+  const secPara = document.createElement('p');
+  const thirdPara = document.createElement('p');
+  const newSpanButton = document.createElement('span');
+
+  divArticle.classList.add('article');
+  datePara.classList.add('date');
+  newSpanButton.classList.add('expandButton');
+
+  divArticle.appendChild(titleHeader);
+  divArticle.appendChild(datePara);
+  divArticle.appendChild(firstPara);
+  divArticle.appendChild(secPara);
+  divArticle.appendChild(thirdPara);
+  divArticle.appendChild(newSpanButton);
+
+  titleHeader.textContent = title;
+  datePara.textContent = date;
+  firstPara.textContent = para1;
+  secPara.textContent = para2;
+  thirdPara.textContent = para3;
+  newSpanButton.textContent = "+";
+
+  newSpanButton.addEventListener('click', () => { // created eventListener on element we want to 'click'
+    divArticle.classList.toggle('article-open');
+  })
+
+  return divArticle;
+}
+
+const accordian = document.querySelector('.articles');
+
+data.push( 
+  {title: "I made this!",
+  date: "Oct. 28th, 2020",
+  firstParagraph: `Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ivysaur Lorem ipsum dolor sit amet, consectetur adipiscing
+  elit. Venusaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Charmander Lorem ipsum dolor sit amet, consectetur
+  adipiscing elit. Charmeleon Lorem ipsum dolor sit amet, consectetur adipiscing elit. Charizard Lorem ipsum dolor sit amet,
+  consectetur adipiscing elit. Squirtle Lorem ipsum dolor sit amet, consectetur adipiscing elit. Wartortle Lorem ipsum dolor
+  sit amet, consectetur adipiscing elit. Blastoise Lorem ipsum dolor sit amet, consectetur adipiscing elit. Caterpie Lorem
+  ipsum dolor sit amet, consectetur adipiscing elit. Metapod Lorem ipsum dolor sit amet, consectetur adipiscing elit. Butterfree
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Weedle Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  Kakuna Lorem ipsum dolor sit amet, consectetur adipiscing elit. Beedrill Lorem ipsum dolor sit amet, consectetur adipiscing
+  elit.`,
+
+secondParagraph: `Pidgey Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pidgeotto Lorem ipsum dolor sit amet, consectetur adipiscing
+  elit. Pidgeot Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rattata Lorem ipsum dolor sit amet, consectetur adipiscing
+  elit. Raticate Lorem ipsum dolor sit amet, consectetur adipiscing elit. Spearow Lorem ipsum dolor sit amet, consectetur adipiscing
+  elit. Fearow Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ekans Lorem ipsum dolor sit amet, consectetur adipiscing
+  elit. Arbok Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pikachu Lorem ipsum dolor sit amet, consectetur adipiscing
+  elit. Raichu Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sandshrew Lorem ipsum dolor sit amet, consectetur adipiscing
+  elit. Sandslash Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nidoran Lorem ipsum dolor sit amet, consectetur
+  adipiscing elit. Nidorina Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nidoqueen Lorem ipsum dolor sit amet,
+  consectetur adipiscing elit. Nidoran Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nidorino Lorem ipsum dolor
+  sit amet, consectetur adipiscing elit. Nidoking Lorem ipsum`,
+
+thirdParagraph: `Gotta catch 'em all Horsea gym Ninjask Absol Sinnoh Poliwag. Gotta catch 'em all Youngster wants to fight Soda Pop Floatzel 
+  Leech Life Seismitoad Ariados. Earthquake Pokemon Glitch City Tail Whip Skitty Ekans Dialga. Ut aliquip ex ea commodo consequat James 
+  Castform Lotad the power that's inside Burnt Berry Makuhita. Ghost Ariados Corphish Dusclops Golbat Gligar Zweilous.`
+})
+
+data.map(item => {
+
+  const connector = articleMaker(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph)
+
+  accordian.appendChild(connector)
+  
+});
+
+/*
+
   Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
   This listener should toggle the class 'article-open' on div.article.
 
